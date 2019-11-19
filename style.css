@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+body
+{
+	background-color: gray;
+}
+
+table
+{
+	height: 500px;
+	width: 500px;
+	margin-left: auto;
+ 	margin-right: auto;
+}
+
+input
+{
+	height: 120px;
+	width: 78px;
+}
+
+button.start
+{
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+button.reset
+{
+	background-color: #e7e7e7; 
+	border: none;
+	color: black;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
