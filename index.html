@@ -10,12 +10,12 @@
 	</head>
 
 	<body onload="assignValues()">
-		<div class="center">
+		<h1>Card Matching Game</h1>
 		<table>
 			<tr>
 				<th></th>
-				<th><button class="start" onClick="start()">Start</button></th>
-				<th><button class="reset" onClick="reset()" disabled="true">Reset</button></th>
+				<th><button id="startBtn" class="start" onClick="assignValues()" disabled="true">Start</button></th>
+				<th><button id="resetBtn" class="reset" onClick="init()" disabled="true">Reset</button></th>
 				<th></th>
 			</tr> 
 			<tr>
@@ -43,7 +43,8 @@
 				<th class="card"><input onClick="show(this)" type="image" id="16" src="Images/back.png" alt="cardBack"></th>
 			</tr>
 		</table>
-		</div>
+
+		<h3 id="triesCtr">Tries: 0</h3>
 			
 	</body>
 </html>
