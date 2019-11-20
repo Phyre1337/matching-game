@@ -56,66 +56,66 @@ async function show(card) // Function to show card that has been clicked on
 {
     if(game == true) // If the game variable is true, the game can be played
     {
-        turnCtr++;
+        turnCtr++; // Increments turn counter to count for how many cards are faced up.
         
-        if(turnCtr == 2)
+        if(turnCtr == 2) // Once one card is already faced up, run these commands...
         {
-            if(card.getAttribute("src") == "Images/back.png")
+            if(card.getAttribute("src") == "Images/back.png") // Turn over the second card and show what's underneath
             {
                 card.src = card.alt;
             }
 
-            card2 = card.value;
-            card2ID = card.id;
+            card2 = card.value; // Store the value of the second card
+            card2ID = card.id; // Store the id of the second card
 
-            if(card1 == card2)
+            if(card1 == card2) // If the two cards match, run these commands...
             {
-                game = false;
-                await sleep(1000);
-                game = true;
-                document.getElementById(card1ID).style.visibility = "hidden";
+                game = false; // Set the game variable to false while asleep
+                await sleep(1000); // Sleeps the game for one second to show cards
+                game = true; // Sets game variable back to true
+                document.getElementById(card1ID).style.visibility = "hidden"; // Make cards dissapear
                 document.getElementById(card2ID).style.visibility = "hidden";
 
-                matchesCtr++;
-                turnCtr = 0;
+                matchesCtr++; // Increments how many matches the player has so far
+                turnCtr = 0; // Resets turn counter to 0 to indicate that no cards are currently flipped over
 
-                tryCtr++;
-                document.getElementById("triesCtr").innerHTML = `Tries: ${tryCtr}`;
-                if(matchesCtr == 8)
+                tryCtr++; // Increments amount of tries until game is finished
+                document.getElementById("triesCtr").innerHTML = `Tries: ${tryCtr}`; // Refresh the display for the amount of tries
+                if(matchesCtr == 8) // If all 8 cards are matched, end the game
                 {
-                    game = false;
-                    document.getElementById("resetBtn").disabled = false;
+                    game = false; // Sets game variable to false
+                    document.getElementById("resetBtn").disabled = false; // Enables reset button.
                 }
             }
-            else
+            else // If the cards do not match run these commands...
             {
-                game = false;
-                await sleep(1000);
-                game = true;
-                document.getElementById(card1ID).src = "Images/back.png";
+                game = false; // Set the game variable to false while asleep
+                await sleep(1000); // Sleeps the game for one second to show cards
+                game = true; // Sets game variable back to true
+                document.getElementById(card1ID).src = "Images/back.png"; // Flips both cards back over
                 document.getElementById(card2ID).src = "Images/back.png";
 
-                turnCtr = 0;
+                turnCtr = 0; // Resets turn counter to zero to show that no cards are flipped over.
 
-                tryCtr++;
-                document.getElementById("triesCtr").innerHTML = `Tries: ${tryCtr}`;
+                tryCtr++; // Increments amount of tries until game is finished
+                document.getElementById("triesCtr").innerHTML = `Tries: ${tryCtr}`; // Refresh the display for the amount of tries
             }
         }
-        else
+        else // If no cards are flipped over run these commands...
         {
-            if(card.getAttribute("src") == "Images/back.png")
+            if(card.getAttribute("src") == "Images/back.png") // Flips card over to reveal face underneath
             {
                 card.src = card.alt;
             }
 
-            card1 = card.value;
+            card1 = card.value; // Stores value and ID of the card
             card1ID = card.id;
         }
     }
     
 }
 
-function init()
+function init() // Function to reset everything back to normal, including variables listed at beginning
 {
     imgSrcs = [
     '1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', 
@@ -142,15 +142,15 @@ function init()
     tryCtr = 0;
     matchesCtr = 0;
 
-    document.getElementById("resetBtn").disabled = true;
+    document.getElementById("resetBtn").disabled = true; // Disables the reset button
 
-    for(i = 1; i <= 16; i++)
+    for(i = 1; i <= 16; i++) // Makes all cards visible again, but not yet clickable
     {
         document.getElementById(i).style.visibility = "visible";
         document.getElementById(i).src = "Images/back.png";
     }
 
-    document.getElementById("triesCtr").innerHTML = "Tries = 0";
+    document.getElementById("triesCtr").innerHTML = "Tries = 0"; // Resets tries display to 0
 
-    document.getElementById("startBtn").disabled = false;
+    document.getElementById("startBtn").disabled = false; // Enables the start button
 }
