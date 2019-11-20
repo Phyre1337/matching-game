@@ -83,6 +83,7 @@ async function show(card) // Function to show card that has been clicked on
                 document.getElementById("triesCtr").innerHTML = `Tries: ${tryCtr}`; // Refresh the display for the amount of tries
                 if(matchesCtr == 8) // If all 8 cards are matched, end the game
                 {
+                    document.getElementById("triesCtr").innerHTML = "You Win!!"; // Displays winning message
                     game = false; // Sets game variable to false
                     document.getElementById("resetBtn").disabled = false; // Enables reset button.
                 }
@@ -150,7 +151,7 @@ function init() // Function to reset everything back to normal, including variab
         document.getElementById(i).src = "Images/back.png";
     }
 
-    document.getElementById("triesCtr").innerHTML = "Tries = 0"; // Resets tries display to 0
+    document.getElementById("triesCtr").innerHTML = "Tries: 0"; // Resets tries display to 0
 
     document.getElementById("startBtn").disabled = false; // Enables the start button
 }
