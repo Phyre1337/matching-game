@@ -46,3 +46,15 @@ button.reset
 	margin: 4px 2px;
 	cursor: pointer;
 }
+
+h1 
+{
+	text-align: center;
+	color: plum;
+}
+
+h3
+{
+	text-align: center;
+	color: plum;
+}
