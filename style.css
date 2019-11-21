@@ -51,12 +51,16 @@ h1
 {
 	text-align: center;
 	color: plum;
+	font-family: 'Antic Slab';
+	font-size: 40px;;
 }
 
 h3
 {
 	text-align: center;
 	color: plum;
+	font-family: 'Antic Slab';
+	font-size: 20px;
 }
 
 .center
