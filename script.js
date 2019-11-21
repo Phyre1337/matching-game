@@ -35,7 +35,6 @@ function sleep(ms) { // Sleep function to use later on for one second
 
 function assignValues() // Function to assign values to card
 {
-    document.getElementById("startBtn").disabled = true; // Disables start button once game has started
     game = true; // Sets game to true so it can be played
     for(i = 1; i <= 16; i++) // For loop to assign card images and values
     {
@@ -60,11 +59,7 @@ async function show(card) // Function to show card that has been clicked on
         
         if(turnCtr == 2) // Once one card is already faced up, run these commands...
         {
-            if(card.getAttribute("src") == "Images/back.png") // Turn over the second card and show what's underneath
-            {
-                card.src = card.alt;
-            }
-
+            card.src = card.alt; // Flips over card to show underneath
             card2 = card.value; // Store the value of the second card
             card2ID = card.id; // Store the id of the second card
 
@@ -104,10 +99,7 @@ async function show(card) // Function to show card that has been clicked on
         }
         else // If no cards are flipped over run these commands...
         {
-            if(card.getAttribute("src") == "Images/back.png") // Flips card over to reveal face underneath
-            {
-                card.src = card.alt;
-            }
+            card.src = card.alt; // Flips over card to show underneath
 
             card1 = card.value; // Stores value and ID of the card
             card1ID = card.id;
@@ -153,5 +145,5 @@ function init() // Function to reset everything back to normal, including variab
 
     document.getElementById("triesCtr").innerHTML = "Tries: 0"; // Resets tries display to 0
 
-    document.getElementById("startBtn").disabled = false; // Enables the start button
+    assignValues(); // Runs value to assign values to cards
 }
